@@ -2,9 +2,10 @@ package com.android.dz.pullrecyclerview;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.support.v4.app.FragmentActivity;
-import android.support.v7.widget.LinearLayoutManager;
-import android.support.v7.widget.RecyclerView;
+import androidx.fragment.app.FragmentActivity;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.PagerSnapHelper;
+import androidx.recyclerview.widget.RecyclerView;
 
 import com.android.dz.pullrecyclerview.adapter.HomeAdapters;
 import com.android.dz.pullrecyclerview.view.DZStickyNavLayouts;
@@ -30,6 +31,7 @@ public class HomeActivitys extends FragmentActivity {
         LinearLayoutManager layoutManager2 = new LinearLayoutManager(this);
         layoutManager2.setOrientation(LinearLayoutManager.HORIZONTAL);
         mHeadRecyclerView.setLayoutManager(layoutManager2);
+        new PagerSnapHelper().attachToRecyclerView(mHeadRecyclerView);
         HomeAdapters mHomeAdapter = new HomeAdapters();
         mHeadRecyclerView.setAdapter(mHomeAdapter);
     }
